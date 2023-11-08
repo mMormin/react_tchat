@@ -4,16 +4,19 @@ import { AppState, TText } from '../../@types';
 const initialState: AppState = {
   messages: [
     {
-      text: 'Salut Comment vas-tu ?',
       id: 0,
+      text: 'Salut!! comment ca va ?',
+      author: 'Maxime',
     },
     {
-      text: 'Ca va et toi ?',
+      text: 'Ca va oklm et toi ?',
       id: 1,
+      author: 'Bernard',
     },
     {
-      text: 'Oklm?',
       id: 2,
+      text: 'On est laaa',
+      author: 'Maxime',
     },
   ],
 };
@@ -26,8 +29,9 @@ const messageSlice = createSlice({
       const newId = state.messages.length;
 
       state.messages.push({
-        text: action.payload,
         id: newId,
+        text: action.payload,
+        author: 'Maxime',
       });
     },
   },

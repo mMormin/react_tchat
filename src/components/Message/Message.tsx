@@ -1,16 +1,21 @@
-import { Segment } from 'semantic-ui-react';
 import './Message.scss';
 import { TMessage } from '../../@types';
 
 type MessageProps = {
   message: TMessage;
+  type: string;
 };
 
-function Message({ message }: MessageProps) {
+function Message({ message, type }: MessageProps) {
   return (
-    <Segment className={`message message-${message.id}`}>
-      <p>{message.text}</p>
-    </Segment>
+    <div className={`segment ${type}`}>
+      <div className="wrapper">
+        <span>{message.author}</span>
+        <div className={`message-bubble message-${message.id}`}>
+          <p>{message.text}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -23,7 +23,8 @@ function NewMessage() {
     <Form className="message" onSubmit={handleSubmit}>
       <Form.Field>
         <Input
-          icon="search"
+          icon="send"
+          focus
           placeholder="Ecrire un message ..."
           value={inputValue}
           onChange={handleInputChange}

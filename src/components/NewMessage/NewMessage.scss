@@ -1,18 +1,15 @@
 @use '../../styles/variables' as v;
 
-form {
+.message {
   width: 100%;
-  position: absolute;
+  position: absolute !important;
   bottom: 0;
 
-  .input {
-    width: 96%;
-    margin: 0 auto 0.6rem auto;
+  input:focus {
+    border-color: pink !important;
+  }
 
-    input {
-      height: 3rem;
-      width: 100%;
-      padding: 0 1rem;
-    }
+  .icon::before {
+    color: red !important;
   }
 }

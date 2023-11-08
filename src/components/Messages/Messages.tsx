@@ -6,8 +6,12 @@ function Messages() {
   const messages = useAppSelector((state) => state.chat.messages);
   return (
     <Container>
-      {messages.map((message) => (
-        <Message key={message.id} message={message} />
+      {messages.map((message, index) => (
+        <Message
+          key={message.id}
+          message={message}
+          type={index % 2 === 0 ? 'ping' : 'pong'}
+        />
       ))}
     </Container>
   );
