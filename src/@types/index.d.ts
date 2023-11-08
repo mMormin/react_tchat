@@ -1,11 +1,10 @@
-export type TText = `${string}`;
-export type TId = number;
+export type TText = string;
 
 export type AppState = {
   messages: TMessage[];
 };
 
 export type TMessage = {
-  id: TId;
+  id: number;
   text: TText;
 };

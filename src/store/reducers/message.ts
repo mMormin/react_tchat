@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AppState, TMessage } from '../../@types';
+import { AppState, TText } from '../../@types';
 
 const initialState: AppState = {
   messages: [
@@ -22,12 +22,16 @@ const messageSlice = createSlice({
   name: 'message',
   initialState,
   reducers: {
-    // getMessages(state, action: PayloadAction<TMessage>) {
-    //   state.text = action.payload;
-    //   state.id += 1;
-    // },
+    sendMessage(state, action: PayloadAction<TText>) {
+      const newId = state.messages.length;
+
+      state.messages.push({
+        text: action.payload,
+        id: newId,
+      });
+    },
   },
 });
 
-export const {} = messageSlice.actions;
+export const { sendMessage } = messageSlice.actions;
 export default messageSlice.reducer;
