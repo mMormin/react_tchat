@@ -1,0 +1,12 @@
+@use '../../styles/variables' as v;
+
+form {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  input {
+    height: 3rem;
+    width: 100%;
+  }
+}

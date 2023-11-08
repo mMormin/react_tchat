@@ -1,0 +1,14 @@
+@use '../../styles/variables' as v;
+
+.app {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #ffffff6e;
+  position: relative;
+
+  .container {
+    height: auto;
+    padding: 2rem 0;
+  }
+}
