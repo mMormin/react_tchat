@@ -1,17 +1,14 @@
 import { Container } from 'semantic-ui-react';
-import { TMessage } from '../../@types/message';
+import { useAppSelector } from '../../hooks/redux';
 import Message from '../Message/Message';
 
-type MessagesProps = {
-  messages: TMessage[];
-};
-
-function Messages({ messages }: MessagesProps) {
+function Messages() {
+  const messages = useAppSelector((state) => state.chat.messages);
   return (
     <Container>
-      {/* {messages.map((message) => (
+      {messages.map((message) => (
         <Message key={message.id} message={message} />
-      ))} */}
+      ))}
     </Container>
   );
 }

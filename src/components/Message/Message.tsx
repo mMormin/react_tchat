@@ -1,6 +1,6 @@
 import { Segment } from 'semantic-ui-react';
 import './Message.scss';
-import { TMessage } from '../../@types/message';
+import { TMessage } from '../../@types';
 
 type MessageProps = {
   message: TMessage;
