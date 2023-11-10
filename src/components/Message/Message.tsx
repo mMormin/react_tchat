@@ -12,7 +12,7 @@ function Message({ message, type }: MessageProps) {
       <div className="wrapper">
         <span>{message.author}</span>
         <div className={`message-bubble message-${message.id}`}>
-          <p>{message.text}</p>
+          <p>{message.content}</p>
         </div>
       </div>
     </div>

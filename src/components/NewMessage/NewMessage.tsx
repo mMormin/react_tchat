@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Input, Form } from 'semantic-ui-react';
 import { useAppDispatch } from '../../hooks/redux';
-import { sendMessage } from '../../store/reducers/message';
+import { sendMessage } from '../../store/reducers/chat';
 import './NewMessage.scss';
 
 function NewMessage() {

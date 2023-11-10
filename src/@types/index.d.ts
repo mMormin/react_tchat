@@ -1,4 +1,4 @@
-export type TText = string;
+export type TContent = string;
 export type TAuthor = string;
 
 export type AppState = {
@@ -6,7 +6,7 @@ export type AppState = {
 };
 
 export type TMessage = {
-  id: number;
-  text: TText;
+  id: string;
+  content: TContent;
   author: string;
 };
