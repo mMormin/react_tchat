@@ -20,7 +20,6 @@ const initialState: ChatState = {
     },
   ],
   inputValue: '',
-  userSettings: false,
 };
 
 const chatSlice = createSlice({
@@ -42,13 +41,8 @@ const chatSlice = createSlice({
 
       state.inputValue = '';
     },
-
-    toggleUserSettings(state, action: PayloadAction<boolean>) {
-      state.userSettings = action.payload;
-    },
   },
 });
 
-export const { changeInputValue, sendMessage, toggleUserSettings } =
-  chatSlice.actions;
+export const { changeInputValue, sendMessage } = chatSlice.actions;
 export default chatSlice.reducer;

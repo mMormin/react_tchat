@@ -1,35 +1,79 @@
 import { Button, Form, Icon, Input } from 'semantic-ui-react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { toggleUserSettings } from '../../store/reducers/chat';
+import {
+  toggleUserSettings,
+  changeEmailValue,
+  changePasswordValue,
+  connectUser,
+} from '../../store/reducers/userSettings';
 import './UserSettings.scss';
 
 function UserSettings() {
   const dispatch = useAppDispatch();
 
-  const userSettings = useAppSelector((state) => state.chat.userSettings);
+  const userSettings = useAppSelector((state) => state.userSettings.isVisible);
+  const email = useAppSelector((state) => state.userSettings.email);
+  const password = useAppSelector((state) => state.userSettings.password);
 
   const handleToggleUserSettings = () => {
-    dispatch(toggleUserSettings(userSettings));
+    dispatch(toggleUserSettings());
+  };
+
+  const handleChangeEmailValue = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const newValue = event.target.value;
+
+    dispatch(changeEmailValue(newValue));
+  };
+
+  const handleChangePasswordValue = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const newValue = event.target.value;
+
+    dispatch(changePasswordValue(newValue));
+  };
+
+  const handleSubmitForm = () => {
+    dispatch(connectUser());
   };
 
   return (
     <div className="settings-user">
       <div className="user-button">
-        <Button circular icon color="teal" onClick={handleToggleUserSettings}>
-          <Icon name="user" />
+        <Button
+          circular
+          icon
+          color="teal"
+          onClick={handleToggleUserSettings}
+          toggle
+          active={userSettings}
+        >
+          <Icon name={userSettings ? `close` : `user`} />
         </Button>
       </div>
 
-      <div className="user-add">
+      <div className={`user-add ${userSettings ? 'active' : ``}`}>
         <Form className="form">
           <Form.Field>
-            <Input focus placeholder="Email" />
+            <Input
+              focus
+              value={email}
+              onChange={handleChangeEmailValue}
+              placeholder="Email"
+            />
           </Form.Field>
           <Form.Field>
-            <Input focus placeholder="Mot de passe" />
+            <Input
+              focus
+              value={password}
+              onChange={handleChangePasswordValue}
+              placeholder="Mot de passe"
+            />
           </Form.Field>
           <Form.Field>
-            <Button fluid color="green">
+            <Button fluid onClick={handleSubmitForm} color="green">
               Envoyer
             </Button>
           </Form.Field>

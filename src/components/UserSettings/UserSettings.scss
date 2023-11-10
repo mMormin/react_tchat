@@ -21,11 +21,15 @@
   }
 
   .user-add {
+    display: none;
     width: 80%;
     border-radius: 1rem;
     background-color: #f5d9d9;
     border: 2px solid white;
     padding: 0.5rem;
-    display: block;
+
+    &.active {
+      display: block;
+    }
   }
 }
