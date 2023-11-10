@@ -59,6 +59,7 @@ function UserSettings() {
           <Form.Field>
             <Input
               focus
+              type="email"
               value={email}
               onChange={handleChangeEmailValue}
               placeholder="Email"
@@ -67,6 +68,7 @@ function UserSettings() {
           <Form.Field>
             <Input
               focus
+              type="password"
               value={password}
               onChange={handleChangePasswordValue}
               placeholder="Mot de passe"
