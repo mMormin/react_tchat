@@ -1,0 +1,31 @@
+.settings-user {
+  display: flex;
+  position: absolute;
+  top: 1.5rem;
+  right: -22rem;
+  width: 22rem;
+  z-index: 2;
+
+  .user-button {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .button {
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important;
+
+      margin: 0.6rem 0 0 0;
+    }
+  }
+
+  .user-add {
+    width: 80%;
+    border-radius: 1rem;
+    background-color: #f5d9d9;
+    border: 2px solid white;
+    padding: 0.5rem;
+    display: block;
+  }
+}

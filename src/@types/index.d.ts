@@ -1,6 +1,7 @@
 export type ChatState = {
   messages: TMessage[];
   inputValue: string;
+  userSettings: boolean;
 };
 
 export type TMessage = {

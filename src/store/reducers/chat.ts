@@ -20,6 +20,7 @@ const initialState: ChatState = {
     },
   ],
   inputValue: '',
+  userSettings: false,
 };
 
 const chatSlice = createSlice({
@@ -29,6 +30,7 @@ const chatSlice = createSlice({
     changeInputValue(state, action: PayloadAction<string>) {
       state.inputValue = action.payload;
     },
+
     sendMessage(state, action: PayloadAction<string>) {
       const newMessage = {
         id: crypto.randomUUID(),
@@ -40,8 +42,13 @@ const chatSlice = createSlice({
 
       state.inputValue = '';
     },
+
+    toggleUserSettings(state, action: PayloadAction<boolean>) {
+      state.userSettings = action.payload;
+    },
   },
 });
 
-export const { changeInputValue, sendMessage } = chatSlice.actions;
+export const { changeInputValue, sendMessage, toggleUserSettings } =
+  chatSlice.actions;
 export default chatSlice.reducer;
