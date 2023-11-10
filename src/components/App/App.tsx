@@ -1,5 +1,5 @@
-import Messages from '../Messages/Messages';
-import NewMessage from '../NewMessage/NewMessage';
+import Messages from '../MessagesList/MessagesList';
+import NewMessage from '../NewMessageForm/NewMessageForm';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 

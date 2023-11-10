@@ -6,6 +6,18 @@
   flex-direction: column;
   margin: 0 auto 1rem auto;
 
+  &--ping {
+    align-items: flex-start;
+  }
+
+  &--pong {
+    align-items: flex-end;
+
+    span {
+      text-align: right;
+    }
+  }
+
   .wrapper {
     width: 70%;
 
@@ -24,17 +36,5 @@
       font-weight: bold;
       color: rgb(41, 41, 41);
     }
-  }
-}
-
-.ping {
-  align-items: flex-start;
-}
-
-.pong {
-  align-items: flex-end;
-
-  span {
-    text-align: right;
   }
 }

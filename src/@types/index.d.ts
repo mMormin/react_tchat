@@ -1,12 +1,10 @@
-export type TContent = string;
-export type TAuthor = string;
-
-export type AppState = {
+export type ChatState = {
   messages: TMessage[];
+  inputValue: string;
 };
 
 export type TMessage = {
   id: string;
-  content: TContent;
+  content: string;
   author: string;
 };

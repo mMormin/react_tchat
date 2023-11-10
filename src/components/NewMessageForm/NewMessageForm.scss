@@ -1,10 +1,7 @@
 @use '../../styles/variables' as v;
 
-.message {
-  width: 100%;
-  position: absolute !important;
-  bottom: 0;
-
+.form {
+  padding: 0.5rem;
   input:focus {
     border-color: pink !important;
   }

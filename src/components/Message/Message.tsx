@@ -1,5 +1,5 @@
-import './Message.scss';
 import { TMessage } from '../../@types';
+import './Message.scss';
 
 type MessageProps = {
   message: TMessage;
@@ -8,7 +8,7 @@ type MessageProps = {
 
 function Message({ message, type }: MessageProps) {
   return (
-    <div className={`segment ${type}`}>
+    <div className={`segment segment--${type}`}>
       <div className="wrapper">
         <span>{message.author}</span>
         <div className={`message-bubble message-${message.id}`}>

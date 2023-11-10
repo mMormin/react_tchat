@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AppState, TContent } from '../../@types';
+import { ChatState } from '../../@types';
 
-const initialState: AppState = {
+const initialState: ChatState = {
   messages: [
     {
       id: crypto.randomUUID(),
@@ -19,12 +19,16 @@ const initialState: AppState = {
       author: 'Maxime',
     },
   ],
+  inputValue: '',
 };
 
 const chatSlice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
+    changeInputValue(state, action: PayloadAction<string>) {
+      state.inputValue = action.payload;
+    },
     sendMessage(state, action: PayloadAction<string>) {
       const newMessage = {
         id: crypto.randomUUID(),
@@ -39,5 +43,5 @@ const chatSlice = createSlice({
   },
 });
 
-export const { sendMessage } = chatSlice.actions;
+export const { changeInputValue, sendMessage } = chatSlice.actions;
 export default chatSlice.reducer;

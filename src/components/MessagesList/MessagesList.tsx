@@ -1,22 +1,20 @@
 import { useEffect, useRef } from 'react';
-import { Container } from 'semantic-ui-react';
 import { useAppSelector } from '../../hooks/redux';
 import Message from '../Message/Message';
+import './MessagesList.scss';
 
-function Messages() {
+function MessagesList() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const messages = useAppSelector((state) => state.chat.messages);
 
   // Scroll into the messagesEndRef each time a new message is added
   useEffect(() => {
-    console.log('new message added');
-
     messagesEndRef.current?.scrollIntoView();
   }, [messages]);
 
   return (
-    <Container>
+    <div className="container-list">
       {messages.map((message, index) => (
         <Message
           key={message.id}
@@ -26,8 +24,8 @@ function Messages() {
       ))}
 
       <div ref={messagesEndRef} />
-    </Container>
+    </div>
   );
 }
 
-export default Messages;
+export default MessagesList;
