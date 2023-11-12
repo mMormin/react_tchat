@@ -9,7 +9,7 @@ export type TMessage = {
   author: string;
 };
 
-export type UserSettingsState = {
+export type LoginState = {
   isVisible: boolean;
   email: string;
   password: string;

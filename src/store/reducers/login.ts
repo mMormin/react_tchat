@@ -1,13 +1,13 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { UserSettingsState } from '../../@types';
+import { LoginState } from '../../@types';
 
-const initialState: UserSettingsState = {
+const initialState: LoginState = {
   isVisible: false,
   email: '',
   password: '',
 };
 
-const chatSlice = createSlice({
+const loginSlice = createSlice({
   name: 'userSettings',
   initialState,
   reducers: {
@@ -35,5 +35,5 @@ export const {
   changeEmailValue,
   changePasswordValue,
   connectUser,
-} = chatSlice.actions;
-export default chatSlice.reducer;
+} = loginSlice.actions;
+export default loginSlice.reducer;

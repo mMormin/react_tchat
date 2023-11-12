@@ -5,15 +5,15 @@ import {
   changeEmailValue,
   changePasswordValue,
   connectUser,
-} from '../../store/reducers/userSettings';
-import './UserSettings.scss';
+} from '../../store/reducers/login';
+import './Login.scss';
 
-function UserSettings() {
+function Login() {
   const dispatch = useAppDispatch();
 
-  const userSettings = useAppSelector((state) => state.userSettings.isVisible);
-  const email = useAppSelector((state) => state.userSettings.email);
-  const password = useAppSelector((state) => state.userSettings.password);
+  const userSettings = useAppSelector((state) => state.login.isVisible);
+  const email = useAppSelector((state) => state.login.email);
+  const password = useAppSelector((state) => state.login.password);
 
   const handleToggleUserSettings = () => {
     dispatch(toggleUserSettings());
@@ -85,4 +85,4 @@ function UserSettings() {
   );
 }
 
-export default UserSettings;
+export default Login;

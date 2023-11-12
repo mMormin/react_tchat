@@ -1,19 +1,19 @@
 import { useAppSelector } from '../../hooks/redux';
-import UserSettings from '../UserSettings/UserSettings';
+import Login from '../Login/Login';
 import MessagesList from '../MessagesList/MessagesList';
 import NewMessage from '../NewMessageForm/NewMessageForm';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 
 function App() {
-  const userSettings = useAppSelector((state) => state.userSettings.isVisible);
+  const loginBox = useAppSelector((state) => state.login.isVisible);
 
   return (
     <div className="app">
-      <UserSettings />
+      <Login />
       <MessagesList />
       <NewMessage />
-      <div className={`backdrop ${userSettings ? `active` : ``}`} />
+      <div className={`backdrop ${loginBox ? `active` : ``}`} />
     </div>
   );
 }
