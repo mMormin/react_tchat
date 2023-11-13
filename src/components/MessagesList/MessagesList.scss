@@ -1,26 +1,19 @@
 @use '../../styles/variables' as v;
 
 .container-messages {
+  display: flex;
   height: 100%;
   overflow: hidden;
+  flex-direction: column;
 
-  .messages-list {
-    height: 93%;
-    overflow-y: scroll;
-    padding: 2rem 0 0 0;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .messages-wrapper {
-    padding: 1rem;
-    border-bottom: 2px solid white;
-    background: #ffffff52;
+  .messages-header {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    padding: 1rem;
+    border-bottom: 2px solid white;
+    background: #ffffff52;
+    box-shadow: rgba(168, 168, 168, 0.1) 0px 1px 0px;
 
     &__image {
       margin-right: 1rem !important;
@@ -29,6 +22,16 @@
     &__title {
       font-size: 1.3rem;
       margin: 0;
+    }
+  }
+
+  .messages-list {
+    height: 93%;
+    overflow-y: scroll;
+    padding: 2rem 0 0 0;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }
