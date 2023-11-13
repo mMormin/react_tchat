@@ -6,17 +6,20 @@ const initialState: ChatState = {
     {
       id: crypto.randomUUID(),
       content: 'Salut!! comment ca va ?',
-      author: 'Maxime',
+      author: 'Moi',
+      date: '10:50',
     },
     {
       id: crypto.randomUUID(),
       content: 'Ca va oklm et toi ?',
       author: 'Bernard',
+      date: '10:55',
     },
     {
       id: crypto.randomUUID(),
       content: 'On est laaa',
-      author: 'Maxime',
+      author: 'Moi',
+      date: ' 10:56',
     },
   ],
   inputValue: '',
@@ -31,10 +34,18 @@ const chatSlice = createSlice({
     },
 
     sendMessage(state, action: PayloadAction<string>) {
+      const today = new Date();
+      const formattedDate = new Intl.DateTimeFormat('fr-FR', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+      }).format(today);
+
       const newMessage = {
         id: crypto.randomUUID(),
         content: action.payload,
-        author: 'Maxime',
+        author: 'Moi',
+        date: formattedDate,
       };
 
       state.messages.push(newMessage);

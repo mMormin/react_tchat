@@ -9,12 +9,13 @@ type MessageProps = {
 function Message({ message, type }: MessageProps) {
   return (
     <div className={`segment segment--${type}`}>
-      <div className="wrapper">
-        <span>{message.author}</span>
+      <div className="message">
+        <span className="message__author">{message.author}</span>
 
         <div className={`message-bubble message-${message.id}`}>
-          <p className="message-bubble__content">{message.content}</p>
+          <p className="message__content">{message.content}</p>
         </div>
+        <span className="message__date">à {message.date}</span>
       </div>
     </div>
   );
