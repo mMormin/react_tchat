@@ -11,6 +11,7 @@ function Message({ message, type }: MessageProps) {
     <div className={`segment segment--${type}`}>
       <div className="wrapper">
         <span>{message.author}</span>
+
         <div className={`message-bubble message-${message.id}`}>
           <p className="message-bubble__content">{message.content}</p>
         </div>

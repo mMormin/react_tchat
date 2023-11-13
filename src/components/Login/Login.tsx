@@ -65,6 +65,7 @@ function Login() {
               placeholder="Email"
             />
           </Form.Field>
+
           <Form.Field>
             <Input
               focus
@@ -74,6 +75,7 @@ function Login() {
               placeholder="Mot de passe"
             />
           </Form.Field>
+
           <Form.Field>
             <Button fluid onClick={handleSubmitForm} color="green">
               Envoyer

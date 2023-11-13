@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Button, Image } from 'semantic-ui-react';
 import { useAppSelector } from '../../hooks/redux';
 import Message from '../Message/Message';
-import GoDownButton from '../GoDownButton/GoDownButton';
 import './MessagesList.scss';
 
 function MessagesList() {
@@ -52,6 +51,7 @@ function MessagesList() {
         />
         <h1 className="messages-header__title">Bernard Dupond</h1>
       </div>
+
       <div className="messages-list" ref={messagesListRef}>
         {messages.map((message, index) => (
           <Message
@@ -62,7 +62,18 @@ function MessagesList() {
         ))}
 
         <div ref={messagesEndRef} />
-        {showArrow && <GoDownButton onClick={handleGoBottom} />}
+
+        {showArrow && (
+          <Button
+            className="button--down"
+            circular
+            size="large"
+            icon="angle down"
+            color="black"
+            toggle
+            onClick={handleGoBottom}
+          />
+        )}
       </div>
     </div>
   );
