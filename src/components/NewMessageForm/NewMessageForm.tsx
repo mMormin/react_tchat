@@ -1,6 +1,8 @@
 import { Input, Form } from 'semantic-ui-react';
+import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { changeInputValue, sendMessage } from '../../store/reducers/chat';
+import { changeInputValue } from '../../store/reducers/chat';
+import { sendMessage } from '../../socket/chat';
 import './NewMessageForm.scss';
 
 function NewMessageForm() {
@@ -8,18 +10,16 @@ function NewMessageForm() {
 
   const inputValue = useAppSelector((state) => state.chat.inputValue);
 
-  const handleChangeInputValue = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeInputValue = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
 
     dispatch(changeInputValue(newValue));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    dispatch(sendMessage(inputValue));
+    sendMessage();
   };
 
   return (

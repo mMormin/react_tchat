@@ -5,8 +5,8 @@ export type ChatState = {
 
 export type TMessage = {
   id: string;
-  content: string;
   author: string;
+  content: string;
   date: string;
 };
 

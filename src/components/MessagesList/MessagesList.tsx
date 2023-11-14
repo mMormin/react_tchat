@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button, Image } from 'semantic-ui-react';
+import { selectMessages } from '../../store/reducers/chat';
+import {
+  subscribeToNewMessages,
+  unsubscribeToNewMessages,
+} from '../../socket/chat';
 import { useAppSelector } from '../../hooks/redux';
 import Message from '../Message/Message';
 import './MessagesList.scss';
@@ -9,7 +14,7 @@ function MessagesList() {
   const messagesListRef = useRef<HTMLDivElement>(null);
   const [showArrow, setShowArrow] = useState(false);
 
-  const messages = useAppSelector((state) => state.chat.messages);
+  const messages = useAppSelector(selectMessages);
 
   const handleGoBottom = () => {
     messagesEndRef.current?.scrollIntoView();
@@ -24,6 +29,13 @@ function MessagesList() {
         messagesList.scrollHeight
     );
   };
+
+  useEffect(() => {
+    subscribeToNewMessages();
+    return () => {
+      unsubscribeToNewMessages();
+    };
+  }, []);
 
   useEffect(() => {
     handleGoBottom();
@@ -49,16 +61,14 @@ function MessagesList() {
           src="https://i.pravatar.cc/300"
           avatar
         />
-        <h1 className="messages-header__title">Bernard Dupond</h1>
+        <h1 className="messages-header__title">
+          Conversation de l&#39;amitier
+        </h1>
       </div>
 
       <div className="messages-list" ref={messagesListRef}>
-        {messages.map((message, index) => (
-          <Message
-            key={message.id}
-            message={message}
-            type={index % 2 === 0 ? 'ping' : 'pong'}
-          />
+        {messages.map((message) => (
+          <Message key={message.id} message={message} />
         ))}
 
         <div ref={messagesEndRef} />

@@ -8,7 +8,7 @@ const initialState: LoginState = {
     email: 'maxime@gmail.io',
     password: 'azerty',
   },
-  pseudo: 'Maxime',
+  pseudo: 'Anonyme',
   error: null,
   isLoading: false,
 };
