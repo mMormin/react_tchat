@@ -1,24 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ChatState } from '../../@types';
+import type { RootState } from '..';
+import { ChatState, TMessage } from '../../@types';
 
 const initialState: ChatState = {
-  messages: [
-    {
-      id: crypto.randomUUID(),
-      content: 'Salut!! comment ca va ?',
-      author: 'Maxime',
-    },
-    {
-      id: crypto.randomUUID(),
-      content: 'Ca va oklm et toi ?',
-      author: 'Bernard',
-    },
-    {
-      id: crypto.randomUUID(),
-      content: 'On est laaa',
-      author: 'Maxime',
-    },
-  ],
+  messages: [],
   inputValue: '',
 };
 
@@ -30,19 +15,34 @@ const chatSlice = createSlice({
       state.inputValue = action.payload;
     },
 
-    sendMessage(state, action: PayloadAction<string>) {
+    sendMessage(state) {
+      const today = new Date();
+      const formattedDate = new Intl.DateTimeFormat('fr-FR', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+      }).format(today);
+
       const newMessage = {
         id: crypto.randomUUID(),
-        content: action.payload,
-        author: 'Maxime',
+        content: state.inputValue,
+        author: 'Moi',
+        date: formattedDate,
       };
 
       state.messages.push(newMessage);
 
       state.inputValue = '';
     },
+
+    addMessage(state, action: PayloadAction<TMessage>) {
+      state.messages.push(action.payload);
+    },
   },
 });
 
-export const { changeInputValue, sendMessage } = chatSlice.actions;
+export const { changeInputValue, sendMessage, addMessage } = chatSlice.actions;
+export const selectIsMine = (state: RootState, author: string) =>
+  state.login.pseudo === author;
+export const selectMessages = (state: RootState) => state.chat.messages;
 export default chatSlice.reducer;
